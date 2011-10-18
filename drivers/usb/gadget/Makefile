@@ -50,6 +50,9 @@ g_nokia-y			:= nokia.o
 g_webcam-y			:= webcam.o
 g_ncm-y				:= ncm.o
 g_android-y			:= android.o
+ifeq ($(CONFIG_USB_ANDROID_QCT_DIAG),y)
+diag-objs      := f_diag.o
+endif
 
 obj-$(CONFIG_USB_ZERO)		+= g_zero.o
 obj-$(CONFIG_USB_AUDIO)		+= g_audio.o
@@ -69,3 +72,9 @@ obj-$(CONFIG_USB_G_NOKIA)	+= g_nokia.o
 obj-$(CONFIG_USB_G_WEBCAM)	+= g_webcam.o
 obj-$(CONFIG_USB_G_NCM)		+= g_ncm.o
 obj-$(CONFIG_USB_ANDROID)	+= g_android.o
+
+# MSM specific
+obj-$(CONFIG_USB_ANDROID_QCT_DIAG)	+= diag.o
+obj-$(CONFIG_USB_ANDROID_DIAG)	+= diag.o
+
+obj-$(CONFIG_USB_HUB)  += smsc251x.o

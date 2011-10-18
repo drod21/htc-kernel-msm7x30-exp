@@ -887,6 +887,12 @@ config USB_FILE_STORAGE_TEST
 	  behavior of USB Mass Storage hosts.  Not needed for
 	  normal operation.
 
+config USB_ANDROID_QCT_DIAG
+	boolean "USB MSM QCT Diag Function"
+	depends on USB_ANDROID
+	help
+	  Qualcomm diagnostics interface support.
+
 config USB_MASS_STORAGE
 	tristate "Mass Storage Gadget"
 	depends on BLOCK
